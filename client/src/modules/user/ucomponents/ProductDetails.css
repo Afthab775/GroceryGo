@@ -1,0 +1,146 @@
+.product-page {
+  width: 100%;
+  padding: 20px;
+}
+
+.breadcrumb {
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: #888;
+}
+
+.crumb {
+  cursor: pointer;
+  color: green;
+  transition: 0.3s;
+}
+
+.crumb:hover {
+  color: darkgreen;
+  text-decoration: underline;
+}
+
+/* Main container */
+.details-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+/* Image box with shadow */
+.image-box {
+  width: 40%;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.image-box img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+}
+
+/* Vertical line */
+.vertical-line {
+  width: 1px;
+  background: #ddd;
+}
+
+/* Right side details */
+.details-box {
+  width: 55%;
+}
+
+.product-name {
+  margin-bottom: 10px;
+}
+
+.qty-text {
+  color: grey;
+  margin-bottom: 10px;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.add-btn {
+  padding: 6px 14px;
+  border: 1px solid green;
+  background: white;
+  color: green;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-btn:hover {
+  background: green;
+  color: white;
+}
+
+.show-details {
+  color: green;
+  margin-top: 12px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* Divider before similar products */
+.section-line {
+  margin: 30px 0;
+  border: 0;
+  height: 1px;
+  background: #ccc;
+}
+
+.similar-title {
+  margin-bottom: 15px;
+}
+
+/* Grid for similar products */
+.similar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 20px;
+}
+
+.similar-card {
+  border: 1px solid #eee;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  text-align: center;
+}
+
+.similar-card:hover {
+  box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+}
+
+.similar-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 8px;
+}
+
+.similar-name {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.similar-price {
+  font-weight: bold;
+}

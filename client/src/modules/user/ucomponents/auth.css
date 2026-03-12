@@ -1,0 +1,248 @@
+/* ============================= */
+/* GLOBAL INPUT FIXES */
+/* ============================= */
+
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}
+
+input::-webkit-credentials-auto-fill-button {
+  visibility: hidden;
+  display: none !important;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  -webkit-text-fill-color: #000 !important;
+}
+
+/* ============================= */
+/* FULLSCREEN BACKDROP */
+/* ============================= */
+
+.auth-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  backdrop-filter: blur(3px);
+  background: rgba(0,0,0,0.15);
+
+  padding: 20px;
+}
+
+/* ============================= */
+/* AUTH CARD */
+/* ============================= */
+
+.auth-card {
+  width: 100%;
+  max-width: 350px;
+
+  padding: 25px;
+  border-radius: 12px;
+
+  background: rgba(255,255,255,0.55);
+  border: 1px solid rgba(255,255,255,0.35);
+
+  backdrop-filter: blur(20px);
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ============================= */
+/* FORM LAYOUT */
+/* ============================= */
+
+.auth-card form{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+/* ============================= */
+/* HEADINGS */
+/* ============================= */
+
+.auth-card h2{
+  font-family:"Montserrat",sans-serif;
+  margin-bottom:10px;
+}
+
+.auth-card h6{
+  font-family:"Montserrat",sans-serif;
+  font-size:14px;
+  text-align:center;
+}
+
+/* ============================= */
+/* INPUTS */
+/* ============================= */
+
+.auth-card input{
+  width:100%;
+  padding:12px;
+
+  border-radius:6px;
+  border:1px solid #ccc;
+
+  outline:none;
+
+  font-size:14px;
+  font-family:"Poppins",sans-serif;
+
+  transition:border 0.2s ease;
+
+  box-sizing:border-box;
+}
+
+.auth-card input:focus{
+  border-color:#4caf50;
+}
+
+/* ============================= */
+/* LOGIN BUTTON */
+/* ============================= */
+
+.auth-card form > button[type="submit"]{
+  width:100%;
+  padding:12px;
+
+  font-size:14px;
+
+  background:#4caf50;
+  color:white;
+
+  border:none;
+  border-radius:6px;
+
+  cursor:pointer;
+
+  font-family:"Poppins",sans-serif;
+
+  transition:background 0.2s ease;
+}
+
+.auth-card form > button[type="submit"]:hover{
+  background:#3e8e41;
+}
+
+/* ============================= */
+/* PASSWORD INPUT */
+/* ============================= */
+
+.password-wrapper{
+  position:relative;
+  width:100%;
+}
+
+.password-input{
+  width:100%;
+  padding:12px 40px 12px 12px;
+
+  border-radius:6px;
+  border:1px solid #ccc;
+
+  font-size:14px;
+  box-sizing:border-box;
+}
+
+/* ============================= */
+/* EYE ICON */
+/* ============================= */
+
+.eye-icon{
+  position:absolute;
+  right:10px;
+  top:50%;
+  transform:translateY(-50%);
+
+  border:none!important;
+  background:none!important;
+
+  cursor:pointer;
+
+  padding:0!important;
+}
+
+.eye-icon svg{
+  font-size:20px;
+  color:#555;
+}
+
+.eye-icon:hover svg{
+  color:#000;
+}
+
+/* ============================= */
+/* PHONE INPUT */
+/* ============================= */
+
+.phone-wrapper{
+  position:relative;
+  width:100%;
+}
+
+.phone-prefix{
+  position:absolute;
+  left:12px;
+  top:50%;
+  transform:translateY(-50%);
+  
+  display:flex;
+  align-items:center;
+  gap:6px;
+
+  font-size:14px;
+  font-weight:600;
+
+  pointer-events:none;
+}
+
+.flag-icon{
+  width:20px;
+  height:14px;
+  object-fit:cover;
+  border-radius:2px;
+}
+
+.phone-input{
+  width:100%;
+  padding:12px 12px 12px 75px !important;
+  border-radius:6px;
+  border:1px solid #ccc;
+
+  font-size:14px;
+  font-family:"Poppins",sans-serif;
+
+  box-sizing:border-box;
+}
+
+.phone-input:focus{
+  border-color:#4caf50;
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media(max-width:480px){
+
+  .auth-card{
+    max-width:90%;
+    padding:20px;
+  }
+
+}
