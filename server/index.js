@@ -27,7 +27,7 @@ app.use('/api/cart',require('./routes/cartroute'))
 app.use('/api/address',require('./routes/addressroute'))
 app.use('/api/order',require('./routes/orderroute'))
 
-const portno = process.env.PORTNO
+const portno = process.env.PORTNO || 5000;
 app.listen(portno,"0.0.0.0",()=>{
-    console.log("Server is running on port no"+portno)
+    console.log(`Server is running on port ${portno}`)
 });
