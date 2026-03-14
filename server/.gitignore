@@ -16,9 +16,6 @@ pids
 *.seed
 *.pid.lock
 
-# Uploads 
-uploads/
-
 # OS files
 .DS_Store
 Thumbs.db
