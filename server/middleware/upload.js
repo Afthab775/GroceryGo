@@ -22,7 +22,8 @@ const storage = new CloudinaryStorage({
 
         return{
             folder: folder,
-            allowed_formats: ["jpg", "png", "jpeg", "webp"]
+            allowed_formats: ["jpg", "png", "jpeg", "webp"],
+            resource_type: "image"
         };
     }
 })

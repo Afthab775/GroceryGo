@@ -4,8 +4,11 @@ const productmodel = require('../models/productmodel')
 
 const addcategory = async(req,res)=>{
     try {
+        console.log("REQ.BODY:", req.body);
+        console.log("REQ.FILE:", req.file);
         const{cname}=req.body
         const categoryimg = req.file ? req.file.path : null
+        console.log("CATEGORY IMAGE PATH:", categoryimg);
         const categorydata = new categorymodel({category_name:cname,category_image:categoryimg})
         await categorydata.save()
         res.status(201).json({message:"category created",categorydata})
@@ -68,7 +71,7 @@ const updatecategory = async(req,res)=>{
             upCat,
             {new:true}
         );
-        
+
         if(!updatedcategory){
             return res.status(404).json({message:"Category not found"})
         }
