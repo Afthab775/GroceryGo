@@ -13,8 +13,9 @@ const addcategory = async(req,res)=>{
         await categorydata.save()
         res.status(201).json({message:"category created",categorydata})
     } catch (error) {
-        console.log(error)
-        res.status(500).json({message:"server error",error})
+        console.log("ADD CATEGORY ERROR:", error)
+        console.log("ADD CATEGORY ERROR JSON:", JSON.stringify(error, Object.getOwnPropertyNames(error), 2))
+        res.status(500).json({message:"server error", error: error.message})
     }
 }
 
