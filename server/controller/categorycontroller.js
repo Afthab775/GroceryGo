@@ -57,13 +57,20 @@ const deletecategory = async(req,res)=>{
 const updatecategory = async(req,res)=>{
     try {
         const {cid} = req.params;
+
         const upCat = {...req.body};
+
         if(req.file){
             upCat.category_image = req.file.path;
         }
-        const updatedcategory = await categorymodel.findByIdAndUpdate(cid,upCat,{new:true});
+        const updatedcategory = await categorymodel.findByIdAndUpdate(
+            cid,
+            upCat,
+            {new:true}
+        );
+        
         if(!updatedcategory){
-            res.status(404).json({message:"Category not found"})
+            return res.status(404).json({message:"Category not found"})
         }
         res.status(201).json({message:"Category Updated",updatedcategory})
     } catch (error) {
