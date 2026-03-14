@@ -56,6 +56,8 @@ const deletecategory = async(req,res)=>{
 
 const updatecategory = async(req,res)=>{
     try {
+        console.log("body:", req.body);
+console.log("file:", req.file);
         const {cid} = req.params;
         const upCat = {...req.body};
         if(req.file){
