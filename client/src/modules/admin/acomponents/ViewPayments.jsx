@@ -211,7 +211,10 @@ export default function ViewPayments() {
                         <Tooltip key={idx} title={item.product_name || 'Product'}>
                           <Avatar
                             variant="rounded"
-                            src={`${import.meta.env.VITE_API_URL}/api/image/${item.product_image}`}
+                            src={
+                              item.product_image.startsWith("http")
+                                ? item.product_image
+                                : `${import.meta.env.VITE_API_URL}/api/image/${item.product_image}`}
                             sx={{
                               width: 40,
                               height: 40,

@@ -265,7 +265,10 @@ export default function Viewsubcategories() {
                   <StyledTableCell>
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                       <Avatar
-                        src={`${import.meta.env.VITE_API_URL}/api/image/${subcat.sub_image}`}
+                        src={
+                          subcat.sub_image.startsWith("http")
+                            ? subcat.sub_image
+                            : `${import.meta.env.VITE_API_URL}/api/image/${subcat.sub_image}`}
                         variant="rounded"
                         sx={{ width: 50, height: 50 }}
                       />
@@ -276,7 +279,10 @@ export default function Viewsubcategories() {
                   </StyledTableCell>
                   <StyledTableCell align="center">
                     <Avatar
-                      src={`${import.meta.env.VITE_API_URL}/api/image/${subcat.sub_image}`}
+                      src={
+                        subcat.sub_image.startsWith("http")
+                          ? subcat.sub_image
+                          : `${import.meta.env.VITE_API_URL}/api/image/${subcat.sub_image}`}
                       variant="rounded"
                       sx={{ width: 60, height: 60, mx: 'auto' }}
                     />

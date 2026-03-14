@@ -33,7 +33,10 @@ export default function Updatecategories() {
           cname: cat.category_name || '',
           cimage: cat.category_image || '',
         });
-        setImagePreview(`${import.meta.env.VITE_API_URL}/api/image/${cat.category_image}`);
+        setImagePreview(
+          cat.category_image.startsWith("http")
+            ? cat.category_image
+            : `${import.meta.env.VITE_API_URL}/api/image/${cat.category_image}`);
       })
       .catch((error) => {
         console.log(error);

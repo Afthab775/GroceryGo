@@ -254,7 +254,10 @@ export default function CartDrawer({ open, onClose }) {
                           justifyContent: "center",
                         }}>
                           <img
-                            src={`${import.meta.env.VITE_API_URL}/api/image/${item.productId.product_image}`}
+                            src={
+                              item.productId.product_image.startsWith("http")
+                                ? item.productId.product_image
+                                : `${import.meta.env.VITE_API_URL}/api/image/${item.productId.product_image}`}
                             alt={item.productId.product_name}
                             style={{
                               width: 70,

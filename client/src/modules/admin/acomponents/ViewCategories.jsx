@@ -233,7 +233,10 @@ export default function ViewCategories() {
                   <StyledTableCell>
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                       <Avatar
-                        src={`${import.meta.env.VITE_API_URL}/api/image/${cat.category_image}`}
+                        src={
+                          cat.category_image.startsWith("http")
+                            ? cat.category_image
+                            : `${import.meta.env.VITE_API_URL}/api/image/${cat.category_image}`}
                         variant="rounded"
                         sx={{ width: 50, height: 50 }}
                       />
@@ -265,7 +268,10 @@ export default function ViewCategories() {
                   </StyledTableCell>
                   <StyledTableCell align="center">
                     <Avatar
-                      src={`${import.meta.env.VITE_API_URL}/api/image/${cat.category_image}`}
+                      src={
+                        cat.category_image.startsWith("http")
+                          ? cat.category_image
+                          : `${import.meta.env.VITE_API_URL}/api/image/${cat.category_image}`}
                       variant="rounded"
                       sx={{ width: 60, height: 60, mx: 'auto' }}
                     />

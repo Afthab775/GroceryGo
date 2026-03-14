@@ -102,7 +102,10 @@ export default function Home() {
             onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
             <img
-              src={`${import.meta.env.VITE_API_URL}/api/image/${cat.category_image}`}
+              src={
+                cat.category_image.startsWith("http")
+                  ? cat.category_image
+                  : `${import.meta.env.VITE_API_URL}/api/image/${cat.category_image}`}
               alt={cat.category_name}
               style={{
                 width: "100%",

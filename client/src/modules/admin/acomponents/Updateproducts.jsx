@@ -63,7 +63,10 @@ export default function Updateproducts() {
           subid: prod.subcategoryID || '',
         });
         setLoaded(true);
-        setImagePreview(`${import.meta.env.VITE_API_URL}/api/image/${prod.product_image}`);
+        setImagePreview(
+          prod.product_image.startsWith("http")
+            ? prod.product_image
+            : `${import.meta.env.VITE_API_URL}/api/image/${prod.product_image}`);
         
         return axios.get(`${import.meta.env.VITE_API_URL}/api/subcategory/getbycategory/${prod.categoryID}`);
       })

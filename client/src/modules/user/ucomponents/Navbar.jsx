@@ -122,7 +122,10 @@ const SearchSuggestions = ({ suggestions, query, anchorEl, onClose, visible }) =
               >
                 <ListItemAvatar>
                   <Avatar
-                    src={`${import.meta.env.VITE_API_URL}/api/image/${product.product_image}`}
+                    src={
+                      product.product_image.startsWith("http")
+                        ? product.product_image
+                        : `${import.meta.env.VITE_API_URL}/api/image/${product.product_image}`}
                     sx={{ width: 45, height: 45, borderRadius: 2 }}
                   />
                 </ListItemAvatar>
