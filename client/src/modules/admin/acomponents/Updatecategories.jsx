@@ -74,8 +74,10 @@ export default function Updatecategories() {
 
     try {
       const data = new FormData();
+      if(category.cimage instanceof File){
+        data.append('cimage', category.cimage);
+      }
       data.append('category_name', category.cname);
-      data.append('cimage', category.cimage);
 
       const res = await axios.put(`${import.meta.env.VITE_API_URL}/api/category/updatecategory/${cid}`, data, {
         headers: {
