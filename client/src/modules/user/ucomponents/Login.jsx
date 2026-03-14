@@ -53,6 +53,15 @@ export default function Login() {
       <div className="auth-card">
         <h2>Login</h2>
 
+        <button
+          onClick={() => nav('/')}
+          className="close-button"
+          aria-label="Close"
+          type="button"
+        >
+          ×
+        </button>
+
         <form autoComplete="off" onSubmit={(e) => { e.preventDefault(); handlelogin(); }}>
           <input
             type='text'

@@ -39,10 +39,46 @@ input:-webkit-autofill {
 }
 
 /* ============================= */
+/* CLOSE BUTTON */
+/* ============================= */
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  
+  width: 32px;
+  height: 32px;
+  
+  border: none;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  
+  font-size: 24px;
+  line-height: 1;
+  color: #666;
+  
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.close-button:hover {
+  background: rgba(0, 0, 0, 0.1);
+  color: #000;
+  transform: scale(1.1);
+}
+
+/* ============================= */
 /* AUTH CARD */
 /* ============================= */
 
 .auth-card {
+  position: relative;
   width: 100%;
   max-width: 350px;
 

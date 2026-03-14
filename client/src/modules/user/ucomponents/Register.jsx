@@ -59,6 +59,15 @@ export default function Register() {
       <div className="auth-card">
         <h2>Create an account!</h2>
 
+        <button
+          onClick={() => nav('/')}
+          className="close-button"
+          aria-label="Close"
+          type="button"
+        >
+          ×
+        </button>
+
         <form onSubmit={(e) => { e.preventDefault(); handlesubmit(); }} autoComplete="off">
           {/* Name */}
           <input

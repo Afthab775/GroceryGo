@@ -3,7 +3,13 @@ const mongoose = require('mongoose')
 const app = express();
 require('dotenv').config();
 const cors = require('cors')
-app.use(cors())
+app.use(cors({
+    origin: [
+        "http://localhost:5173",
+        "https://your-frontend.vercel.app"
+    ],
+    credentials: true
+}))
 app.use(express.json())
 const mongoURL = process.env.URI
 const ConnectToMongo = async ()=>{
