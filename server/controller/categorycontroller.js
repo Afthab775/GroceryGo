@@ -4,18 +4,14 @@ const productmodel = require('../models/productmodel')
 
 const addcategory = async(req,res)=>{
     try {
-        console.log("REQ.BODY:", req.body);
-        console.log("REQ.FILE:", req.file);
         const{cname}=req.body
-        const categoryimg = req.file ? req.file.path : null
-        console.log("CATEGORY IMAGE PATH:", categoryimg);
+        const categoryimg = req.file ? req.file.filename : null
         const categorydata = new categorymodel({category_name:cname,category_image:categoryimg})
         await categorydata.save()
         res.status(201).json({message:"category created",categorydata})
     } catch (error) {
-        console.log("ADD CATEGORY ERROR:", error)
-        console.log("ADD CATEGORY ERROR JSON:", JSON.stringify(error, Object.getOwnPropertyNames(error), 2))
-        res.status(500).json({message:"server error", error: error.message})
+        console.log(error)
+        res.status(500).json({message:"server error",error})
     }
 }
 
@@ -35,7 +31,7 @@ const getcategorybyID = async(req,res)=>{
         const{cid} = req.params;
         const onecategory = await categorymodel.findById(cid);
         if(!onecategory){
-            return res.status(404).json({message:"category not found"})
+            return res.status(404).json({message:"category not found",error})
         }
         res.status(201).json({message:"category found",onecategory})
         console.log(onecategory)
@@ -61,20 +57,13 @@ const deletecategory = async(req,res)=>{
 const updatecategory = async(req,res)=>{
     try {
         const {cid} = req.params;
-
         const upCat = {...req.body};
-
         if(req.file){
-            upCat.category_image = req.file.path;
+            upCat.category_image = req.file.filename;
         }
-        const updatedcategory = await categorymodel.findByIdAndUpdate(
-            cid,
-            upCat,
-            {new:true}
-        );
-
+        const updatedcategory = await categorymodel.findByIdAndUpdate(cid,upCat,{new:true});
         if(!updatedcategory){
-            return res.status(404).json({message:"Category not found"})
+            res.status(404).json({message:"Category not found"})
         }
         res.status(201).json({message:"Category Updated",updatedcategory})
     } catch (error) {

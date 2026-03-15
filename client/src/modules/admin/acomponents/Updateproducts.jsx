@@ -63,10 +63,7 @@ export default function Updateproducts() {
           subid: prod.subcategoryID || '',
         });
         setLoaded(true);
-        setImagePreview(
-          prod.product_image.startsWith("http")
-            ? prod.product_image
-            : `${import.meta.env.VITE_API_URL}/api/image/${prod.product_image}`);
+        setImagePreview(`${import.meta.env.VITE_API_URL}/api/image/${prod.product_image}`);
         
         return axios.get(`${import.meta.env.VITE_API_URL}/api/subcategory/getbycategory/${prod.categoryID}`);
       })
@@ -122,6 +119,10 @@ export default function Updateproducts() {
     }
     if (!products.pprice) {
       showSnackbar("Please enter product price", "warning");
+      return false;
+    }
+    if (products.pprice<0) {
+      showSnackbar("Price cannot be negetive", "warning");
       return false;
     }
     if (!products.pquantity) {
@@ -333,6 +334,7 @@ export default function Updateproducts() {
                 name='pprice'
                 type="number"
                 onChange={handlechange}
+                inputProps={{ min: 0 }}
                 InputProps={{
                   startAdornment: <Typography sx={{ color: '#999', mr: 1 }}>₹</Typography>,
                 }}
@@ -369,6 +371,7 @@ export default function Updateproducts() {
                 name='pquantity'
                 type="number"
                 onChange={handlechange}
+                inputProps={{ min: 0 }}
                 required
                 sx={{
                   '& .MuiOutlinedInput-root': {

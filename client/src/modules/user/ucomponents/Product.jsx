@@ -110,10 +110,7 @@ export default function Product() {
             border: "1px solid #f0f0f0"
           }}>
             <img
-              src={
-                product.product_image.startsWith("http")
-                  ? product.product_image
-                  : `${import.meta.env.VITE_API_URL}/api/image/${product.product_image}`}
+              src={`${import.meta.env.VITE_API_URL}/api/image/${product.product_image}`}
               alt={product.product_name}
               style={{
                 width: "100%",
@@ -667,10 +664,7 @@ export default function Product() {
                 backgroundColor: "#f8f9fa"
               }}>
                 <img
-                  src={
-                    item.product_image.startsWith("http")
-                      ? item.product_image
-                      : `${import.meta.env.VITE_API_URL}/api/image/${item.product_image}`}
+                  src={`${import.meta.env.VITE_API_URL}/api/image/${item.product_image}`}
                   style={{
                     width: "100%",
                     height: "140px",

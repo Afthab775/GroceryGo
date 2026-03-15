@@ -4,7 +4,7 @@ const productmodel = require('../models/productmodel')
 const addSubCat = async(req,res)=>{
     try {
         const{subname,cid} = req.body
-            const subimage = req.file ? req.file.path : null;
+            const subimage = req.file ? req.file.filename : null;
             const subdata = new SubCategoryModel ({sub_name:subname,sub_image:subimage,parent_category:cid})
             await subdata.save();
             res.status(201).json({message:"Sub Category Added",subdata})
@@ -67,7 +67,7 @@ const updatesubcategory = async(req,res)=>{
         const {subid} = req.params;
         const upSubCat = {...req.body};
         if(req.file){
-            upSubCat.sub_image = req.file.path;
+            upSubCat.sub_image = req.file.filename;
         }
         const updatedsubcategory = await SubCategoryModel.findByIdAndUpdate(subid,upSubCat,{new:true});
         if(!updatedsubcategory){

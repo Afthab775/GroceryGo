@@ -87,6 +87,10 @@ export default function ManageProducts() {
       showSnackbar("Please enter product price", "warning");
       return false;
     }
+    if (products.pprice<0) {
+      showSnackbar("Price cannot be negetive", "warning");
+      return false;
+    }
     if (!products.pquantity) {
       showSnackbar("Please enter stock quantity", "warning");
       return false;
@@ -292,6 +296,7 @@ export default function ManageProducts() {
                 name='pprice'
                 type="number"
                 onChange={handlechange}
+                inputProps={{ min: 0 }}
                 InputProps={{
                   startAdornment: <Typography sx={{ color: '#999', mr: 1 }}>₹</Typography>,
                 }}
@@ -328,6 +333,7 @@ export default function ManageProducts() {
                 name='pquantity'
                 type="number"
                 onChange={handlechange}
+                inputProps={{ min: 0 }}
                 required
                 sx={{
                   '& .MuiOutlinedInput-root': {

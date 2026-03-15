@@ -50,10 +50,7 @@ export default function UpdateSubCat() {
           subimage: sub.sub_image || '',
           cid: sub.parent_category || '',
         });
-        setImagePreview(
-          sub.sub_image.startsWith("http")
-            ? sub.sub_image
-            : `${import.meta.env.VITE_API_URL}/api/image/${sub.sub_image}`);
+        setImagePreview(`${import.meta.env.VITE_API_URL}/api/image/${sub.sub_image}`);
       })
       .catch((error) => {
         console.log(error);

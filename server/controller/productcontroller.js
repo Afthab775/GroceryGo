@@ -3,7 +3,7 @@ const productmodel = require('../models/productmodel')
 const addproduct = async(req,res)=>{
     try {
         const{pname,pdescription,pprice,pquantity,punit,cid,subid} = req.body
-        const productimage = req.file ? req.file.path : null;
+        const productimage = req.file ? req.file.filename : null;
         const productdata = new productmodel ({product_name:pname,product_description:pdescription,
         product_price:pprice,product_quantity:pquantity,product_unit:punit,product_image:productimage,categoryID:cid,subcategoryID:subid})
     await productdata.save();
@@ -58,7 +58,7 @@ const updateproduct = async(req,res)=>{
         const {pid} = req.params;
         const updateData = {...req.body}
         if(req.file){
-            updateData.product_image = req.file.path;
+            updateData.product_image = req.file.filename;
         }
         const updateproduct = await productmodel.findByIdAndUpdate(pid,updateData,{new:true});
         if(!updateproduct){

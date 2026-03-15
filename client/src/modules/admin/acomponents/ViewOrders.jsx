@@ -359,10 +359,7 @@ export default function ViewOrders() {
                           >
                             <Avatar
                               variant="rounded"
-                              src={
-                                item.product_image.startsWith("http")
-                                  ? item.product_image
-                                  : `${import.meta.env.VITE_API_URL}/api/image/${item.product_image}`}
+                              src={`${import.meta.env.VITE_API_URL}/api/image/${item.product_image}`}
                               sx={{
                                 width: 50,
                                 height: 50,

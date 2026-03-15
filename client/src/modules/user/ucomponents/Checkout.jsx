@@ -213,10 +213,7 @@ export default function Checkout() {
 
               {/* Product Image */}
               <img
-                src={
-                  item.productId.product_image.startsWith("http")
-                    ? item.productId.product_image
-                    : `${import.meta.env.VITE_API_URL}/api/image/${item.productId.product_image}`}
+                src={`${import.meta.env.VITE_API_URL}/api/image/${item.productId.product_image}`}
                 alt=""
                 style={{
                   width: 60,

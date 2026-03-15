@@ -237,10 +237,7 @@ export default function ViewProducts() {
                   <StyledTableCell>
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                       <Avatar
-                        src={
-                          product.product_image.startsWith("http")
-                            ? product.product_image
-                            : `${import.meta.env.VITE_API_URL}/api/image/${product.product_image}`}
+                        src={`${import.meta.env.VITE_API_URL}/api/image/${product.product_image}`}
                         variant="rounded"
                         sx={{ width: 50, height: 50 }}
                       />

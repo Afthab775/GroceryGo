@@ -164,10 +164,7 @@ export default function Category() {
             }}
           >
             <img
-              src={
-                sub.sub_image.startsWith("http")
-                  ? sub.sub_image
-                  : `${import.meta.env.VITE_API_URL}/api/image/${sub.sub_image}`}
+              src={`${import.meta.env.VITE_API_URL}/api/image/${sub.sub_image}`}
               alt={sub.sub_name}
               style={{
                 width: "60px",
@@ -299,10 +296,7 @@ export default function Category() {
                   )}
 
                   <img
-                    src={
-                      prod.product_image.startsWith("http")
-                        ? prod.product_image
-                        : `${import.meta.env.VITE_API_URL}/api/image/${prod.product_image}`}
+                    src={`${import.meta.env.VITE_API_URL}/api/image/${prod.product_image}`}
                     alt={prod.product_name}
                     style={{
                       width: "100%",

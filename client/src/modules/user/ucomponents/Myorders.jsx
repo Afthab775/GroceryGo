@@ -306,10 +306,7 @@ export default function MyOrders() {
                               }}
                             >
                               <img
-                                src={
-                                  item.product_image.startsWith("http")
-                                    ? item.product_image
-                                    : `${import.meta.env.VITE_API_URL}/api/image/${item.product_image}`}
+                                src={`${import.meta.env.VITE_API_URL}/api/image/${item.product_image}`}
                                 alt={item.productId?.product_name || "Product"}
                                 style={{
                                   width: "100%",
